@@ -1,6 +1,6 @@
 import debug from "debug";
 import { NextFunction, Request, Response } from "express";
-import { CustomError } from "../errors/custom-error.error";
+import { CustomError } from "../errors/custom.error";
 import { utilInspection } from "../utils/helper.util";
 
 debug.formatters.O = (v) => utilInspection(v);

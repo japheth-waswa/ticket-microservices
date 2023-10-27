@@ -1,19 +1,24 @@
-import { json } from "body-parser";
-import express from "express";
-import { errorHandler } from "./middlewares/error-handler";
-import { currentUserRouter } from "./routes/current-user.route";
-import { signinRouter } from "./routes/signin.route";
-import { signoutRouter } from "./routes/signout.route";
-import { signupRouter } from "./routes/signup.route";
+import debug from "debug";
+import "express-async-errors";
+import mongoose from "mongoose";
+import { app } from "./app";
+import { utilInspection } from "./utils/helper.util";
 
-const app = express();
+debug.formatters.O = (v) => utilInspection(v);
+const debugx = debug("ticketAuth:index");
 
-app.use(json());
+const start = async () => {
+  if (!process.env.JWT_KEY) throw new Error("JWT_KEY must be defined");
 
-app.use(currentUserRouter);
-app.use(signinRouter);
-app.use(signoutRouter);
-app.use(signupRouter);
-app.use(errorHandler);
+  try {
+    //connect to mongodb
+    await mongoose.connect("mongodb://auth-mongo-srv:27017/auth");
+    debugx("connected to mongodb");
+  } catch (e) {
+    debugx(e);
+  }
+};
 
 app.listen(3000, () => console.log("listening on port 3000"));
+
+start();
