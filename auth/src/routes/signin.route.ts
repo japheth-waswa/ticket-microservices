@@ -1,9 +1,8 @@
+import { BadRequestError, validateRequest } from "@scalafrica/ticket-common";
 import debug from "debug";
 import express, { Request, Response } from "express";
 import { check } from "express-validator";
 import jwt from "jsonwebtoken";
-import { BadRequestError } from "../errors/bad-request.error";
-import { validateRequest } from "../middlewares/validate-request.middleware";
 import { User } from "../models/user.model";
 import { Password } from "../services/password";
 import { utilInspection } from "../utils/helper.util";

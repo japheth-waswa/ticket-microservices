@@ -5,7 +5,7 @@ import { app } from "./app";
 import { utilInspection } from "./utils/helper.util";
 
 debug.formatters.O = (v) => utilInspection(v);
-const debugx = debug("ticketAuth:index");
+const debugx = debug("ticketTicket:index");
 
 const start = async () => {
   if (!process.env.JWT_KEY) throw new Error("JWT_KEY must be defined");
@@ -20,6 +20,6 @@ const start = async () => {
   }
 };
 
-app.listen(3000, () => console.log("listening on port 3000"));
+app.listen(3000, () => console.log("listening on port 3000!!!"));
 
 start();

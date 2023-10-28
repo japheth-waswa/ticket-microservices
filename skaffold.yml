@@ -23,4 +23,12 @@ build:
         manual:
           - src: '**/*.js'
             dest: .
+    - image: ticket-micro/tickets
+      context: tickets
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
   

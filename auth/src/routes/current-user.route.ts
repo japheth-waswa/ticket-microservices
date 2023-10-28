@@ -1,6 +1,6 @@
+import { currentUser } from "@scalafrica/ticket-common";
 import debug from "debug";
 import express from "express";
-import { currentUser } from "../middlewares/current-user.middleware";
 import { utilInspection } from "../utils/helper.util";
 
 debug.formatters.O = (v) => utilInspection(v);
