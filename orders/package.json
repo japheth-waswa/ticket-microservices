@@ -1,11 +1,11 @@
 {
-  "name": "tickets",
+  "name": "orders",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "ts-node-dev --poll src/index.ts",
-    "dev": "DEBUG=ticketTicket:* DEBUG_COLORS=1 ts-node-dev --poll src/index.ts",
+    "dev": "DEBUG=ticketOrders:* DEBUG_COLORS=1 ts-node-dev --poll src/index.ts",
     "test": "jest --watchAll --no-cache"
   },
   "jest": {
