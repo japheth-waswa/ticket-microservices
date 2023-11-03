@@ -30,7 +30,6 @@ router.delete(
     new OrderCancelledPublisher(natsWrapper.client).publish({
       id: order.id,
       version: order.version,
-      // version: 1,
       ticket: { id: order.ticket.id },
     });
 
